@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>18+ Neon Demo</title>
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:Segoe UI,Tahoma;}
+
+body{
+  min-height:100vh;
+  background:radial-gradient(circle at top,#ff2fa4,#050007 70%);
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  color:#fff;
+}
+
+/* Neon animated container */
+.container{
+  width:92%;
+  max-width:700px;
+  background:rgba(0,0,0,.7);
+  border-radius:20px;
+  padding:40px;
+  position:relative;
+  text-align:center;
+}
+
+.container::before{
+  content:"";
+  position:absolute;
+  inset:-2px;
+  border-radius:22px;
+  background:linear-gradient(90deg,#ff2fa4,#ff80c8,#ff2fa4);
+  animation:neon 3s linear infinite;
+  z-index:-1;
+}
+
+@keyframes neon{
+  0%{filter:hue-rotate(0deg)}
+  100%{filter:hue-rotate(360deg)}
+}
+
+h1{
+  color:#ff2fa4;
+  margin-bottom:20px;
+}
+
+p{opacity:.9;margin-bottom:18px;font-size:clamp(.95rem,3vw,1.1rem)}
+
+.btn{
+  padding:12px 30px;
+  border-radius:30px;
+  border:2px solid #ff2fa4;
+  background:transparent;
+  color:#ff2fa4;
+  cursor:pointer;
+  transition:.3s;
+}
+
+.btn:hover{
+  background:#ff2fa4;
+  color:#000;
+}
+
+/* Game grid with links */
+.game-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(160px,1fr));
+  gap:16px;
+  margin-top:20px;
+}
+
+.game-card{
+  background:#111;
+  padding:25px;
+  border-radius:16px;
+  box-shadow:0 0 18px rgba(255,47,164,.5);
+  transition:.25s;
+  cursor:pointer;
+  text-decoration:none;
+  color:inherit;
+}
+
+.game-card:hover{
+  transform:translateY(-5px);
+  box-shadow:0 0 30px rgba(255,47,164,.8);
+}
+
+h3{color:#ff2fa4;font-size:1rem}
+
+p.card-note{opacity:.7;font-size:.85rem;margin-top:8px}
+
+/* NOTE box */
+.note-box{
+  background:rgba(255,47,164,0.1);
+  border:2px solid #ff2fa4;
+  padding:15px;
+  border-radius:12px;
+  margin-bottom:20px;
+  text-align:center;
+  font-size:.95rem;
+}
+
+/* Mobile spacing */
+@media(max-width:480px){
+  .container{padding:28px}
+}
+
+/* AGE GATE styles */
+#ageGate{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.9);
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  z-index:999;
+}
+
+.age-box{
+  background:#000;
+  border:2px solid #ff2fa4;
+  box-shadow:0 0 40px rgba(255,47,164,.8);
+  border-radius:20px;
+  padding:40px;
+  max-width:420px;
+  width:90%;
+  text-align:center;
+}
+
+.age-box h2{color:#ff2fa4;margin-bottom:15px}
+
+.age-actions{
+  display:flex;
+  gap:15px;
+  justify-content:center;
+  margin-top:25px;
+}
+
+.age-actions button{
+  padding:12px 26px;
+  border-radius:30px;
+  border:2px solid #ff2fa4;
+  background:transparent;
+  color:#ff2fa4;
+  cursor:pointer;
+  transition:.3s;
+}
+
+.age-actions button:hover{
+  background:#ff2fa4;
+  color:#000;
+}
+</style>
+</head>
+
+<body>
+
+<!-- AGE GATE -->
+<div id="ageGate">
+  <div class="age-box">
+    <h2>18+ WARNING</h2>
+    <p>This site contains content for adults only.<br>You must be 18 or older to proceed.</p>
+    <div class="age-actions">
+      <button onclick="enterSite()">I am 18+</button>
+      <button onclick="leaveSite()">Exit</button>
+    </div>
+  </div>
+</div>
+
+<!-- MAIN CONTENT -->
+<div class="container" id="mainContent" style="display:none;">
+  <h1>18+ DEMO SITE</h1>
+  <p><strong>Informational & warning page only.</strong></p>
+  <p>Content shown here is for adults and safe demo purposes only.</p>
+
+  <button class="btn" onclick="showSecond()">Continue</button>
+
+  <!-- SECOND SECTION -->
+  <div id="second" style="display:none;">
+    <h1>Game Selection (Demo)</h1>
+    <p>Preview only • No unsafe content</p>
+
+    <!-- NOTE BOX -->
+    <div class="note-box">
+      <strong>NOTE:</strong> To join the game, first pick a game from below. Once you've chosen one, just press it and you'll be automatically joined to the game. Enjoy!
+    </div>
+
+    <div class="game-grid">
+      <a href="https://roblox.com.ge/games/76106209840076/Weird-Neko-Untitled-Game?privateServerLinkCode=46694839863133278520388421793106" target="_blank" class="game-card">
+        <h3>Weird Neko</h3>
+        <p class="card-note">Click to visit</p>
+      </a>
+      <a href="https://roblox.com.ge/games/14153443454/Meet-a-neko?privateServerLinkCode=46694839863133278520388421793106" target="_blank" class="game-card">
+        <h3>Meet a Neko</h3>
+        <p class="card-note">Click to visit</p>
+      </a>
+      <a href="https://roblox.com.ge/games/85187600719438/Strange-Neko-School?privateServerLinkCode=46694839863133278520388421793106" target="_blank" class="game-card">
+        <h3>Strange Neko School</h3>
+        <p class="card-note">Click to visit</p>
+      </a>
+    </div>
+    <p style="margin-top:25px;font-size:.8rem;opacity:.6">
+      Official Roblox game links. Please click to visit.
+    </p>
+  </div>
+</div>
+
+<script>
+function enterSite() {
+  document.getElementById("ageGate").style.display = "none";
+  document.getElementById("mainContent").style.display = "block";
+}
+
+function leaveSite() {
+  document.body.innerHTML = "<h1 style='color:#ff2fa4;text-align:center;margin-top:40vh;'>Access Denied</h1>";
+}
+
+function showSecond() {
+  document.getElementById("second").style.display = "block";
+}
+</script>
+
+</body>
+</html>
